@@ -1,30 +1,40 @@
-import React from "react";
-
+import { useState, useEffect } from "react";
 import { Cards, Chart, CountryPicker } from "./components";
-import styles from "./App.module.css";
 import { fetchData } from "./api";
+import styles from "./App.module.css";
 
-export class App extends React.Component {
-  state = {
-    data: {},
+const App = () => {
+  const [data, setData] = useState([]);
+  const [country, setCountry] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchAPI = async () => {
+      setData(await fetchData());
+    };
+    fetchAPI();
+  }, []);
+
+  const handleCountryChange = async (selectedCountry) => {
+    setIsLoading(true);
+    setCountry(selectedCountry);
+    setData(await fetchData(selectedCountry));
+    setIsLoading(false);
   };
 
-  async componentDidMount() {
-    const fetchedData = await fetchData();
-
-    this.setState({ data: fetchedData });
-  }
-
-  render() {
-    const { data } = this.state;
-    return (
-      <div className={styles.container}>
-        <Cards data={data} />
-        <CountryPicker />
-        <Chart />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={styles.container}>
+      <header>
+        <h1>COVID 19 Tracker</h1>
+      </header>
+      {!isLoading && <Cards data={data} />}
+      {isLoading && (
+        <p className={styles.loadingText}>Loading {country} data...</p>
+      )}
+      <CountryPicker handleCountryChange={handleCountryChange} />
+      <Chart data={data} country={country} />
+    </div>
+  );
+};
 
 export default App;

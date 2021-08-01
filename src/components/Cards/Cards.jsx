@@ -8,10 +8,20 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
   if (!confirmed) {
     return "Loading...";
   }
+
+  let mortalityPercentage = `${((deaths.value / confirmed.value) * 100).toFixed(
+    2
+  )}%`;
   return (
     <div className={styles.container}>
-      <Grid container spacing={3} justify="center">
-        <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.infected)}>
+      <Grid container spacing={4} justify="center" row-gap="100px">
+        <Grid
+          item
+          component={Card}
+          xs={12}
+          md={6}
+          className={cx(styles.card, styles.infected)}
+        >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               Infected
@@ -32,7 +42,13 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
             </Typography>
           </CardContent>
         </Grid>
-        <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.recovered)}>
+        <Grid
+          item
+          component={Card}
+          xs={12}
+          md={6}
+          className={cx(styles.card, styles.recovered)}
+        >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               Recovered
@@ -53,7 +69,13 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
             </Typography>
           </CardContent>
         </Grid>
-        <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.deaths)}>
+        <Grid
+          item
+          component={Card}
+          xs={12}
+          md={6}
+          className={cx(styles.card, styles.deaths)}
+        >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               Deaths
@@ -66,6 +88,26 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
                 separator=","
               />
             </Typography>
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
+            <Typography variant="body2">
+              Number of deaths caused by COVID-19
+            </Typography>
+          </CardContent>
+        </Grid>
+        <Grid
+          item
+          component={Card}
+          xs={12}
+          md={6}
+          className={cx(styles.card, styles.deaths)}
+        >
+          <CardContent>
+            <Typography color="textSecondary" gutterBottom>
+              Mortality Percentage
+            </Typography>
+            <Typography variant="h5">{mortalityPercentage}</Typography>
             <Typography color="textSecondary">
               {new Date(lastUpdate).toDateString()}
             </Typography>
