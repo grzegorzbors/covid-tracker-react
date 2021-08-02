@@ -12,4 +12,4 @@ The project is using Chart.js and custom API https://covid19.mathdro.id/api to f
 
 The max daily date range of line chart for _Global_ view is 03/02/2021 because the API provides data max up to this date only.
 
-The overview cards with Infected/Recovered/Deaths/Mortality Percentage as well as country bar charts are showing current data, so it is accurately shown.
+The overview cards with Infected/Recovered/Deaths/Mortality Percentage as well as country bar charts are showing current data, so the values are accurate.
