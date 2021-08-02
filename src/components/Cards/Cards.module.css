@@ -1,19 +1,39 @@
 .container {
-  margin: 50px 0;
+  margin-bottom: 2rem;
 }
 
 .card {
-  margin: 0 2% !important;
+  margin: 1rem !important;
 }
 
 .infected {
-  border-bottom: 10px solid rgba(255, 255, 0, 0.5);
+  border-bottom: 0.5rem solid rgba(255, 255, 0, 0.5);
 }
 
 .recovered {
-  border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+  border-bottom: 0.5rem solid rgba(0, 255, 0, 0.5);
 }
 
 .deaths {
-  border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+  border-bottom: 0.5rem solid rgba(255, 0, 0, 0.5);
+}
+
+.mortalityPercentage {
+  border-bottom: 0.5rem solid black;
+}
+
+.fontAwesome {
+  font-size: 1.5rem;
+}
+
+.virus {
+  color: rgb(148, 178, 28);
+}
+
+.medkit {
+  color: rgb(201, 75, 75);
+}
+
+.skull {
+  color: rgb(0, 0, 0);
 }

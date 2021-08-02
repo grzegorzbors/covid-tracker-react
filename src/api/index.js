@@ -6,7 +6,7 @@ export const fetchData = async (country) => {
   let flexibleUrl = url;
 
   // adjust the URL depending on the dropdown pick
-  if (country && country !== "global") {
+  if (country) {
     flexibleUrl = `${url}/countries/${country}/`;
   }
 
