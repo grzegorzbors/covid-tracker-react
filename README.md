@@ -1,10 +1,14 @@
 # React COVID-19 Tracker
 
+## Live Version
+
+Here is [live version of the project](https://youthful-lewin-234288.netlify.app "live version of the project").
+
 ## Purpose
 
 This project is made as an exercise to learn React.js. It is a refactored codealong to the [YouTube tutorial](https://www.youtube.com/watch?v=khJlrj3Y6Ls&t=3117s "YouTube tutorial").
 
-The project is meant to be modified and improved in the future.
+The project is meant to be modified, refactored and improved in the future.
 
 ## Features
 
